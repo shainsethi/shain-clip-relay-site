@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Shain Clip Relay is a private, account-owner-operated automation that copies authorized Twitch clips to an authorized YouTube channel."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#11120f" />
+    <title>Shain Clip Relay</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="wordmark" href="index.html" aria-label="Shain Clip Relay home">
+          <span class="wordmark-mark" aria-hidden="true">SCR</span>
+          <span>Shain Clip Relay</span>
+        </a>
+        <nav>
+          <a href="#operation">Operation</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="live-dot"></span> Personal automation / owner operated</p>
+            <h1 id="hero-title">Clips move.<br /><em>Control stays.</em></h1>
+            <p class="hero-summary">
+              A private relay that finds new clips on one authorized Twitch channel and uploads them to one authorized YouTube channel.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#operation">See the data flow</a>
+              <a class="button button-quiet" href="privacy.html">Read the privacy policy</a>
+            </div>
+          </div>
+
+          <aside class="signal-card" aria-label="Service summary">
+            <div class="signal-card-header">
+              <span>Relay record</span>
+              <span>01 / personal</span>
+            </div>
+            <dl>
+              <div>
+                <dt>Access</dt>
+                <dd>Explicit OAuth consent</dd>
+              </div>
+              <div>
+                <dt>YouTube scope</dt>
+                <dd><code>youtube.upload</code></dd>
+              </div>
+              <div>
+                <dt>Video storage</dt>
+                <dd>Temporary during transfer</dd>
+              </div>
+              <div>
+                <dt>Advertising</dt>
+                <dd>None</dd>
+              </div>
+            </dl>
+            <div class="signal-line" aria-hidden="true"><span></span></div>
+          </aside>
+        </section>
+
+        <section class="operation section-rule" id="operation" aria-labelledby="operation-title">
+          <div class="section-heading">
+            <p class="section-number">01</p>
+            <div>
+              <p class="eyebrow">Operation</p>
+              <h2 id="operation-title">One deliberate route</h2>
+            </div>
+          </div>
+
+          <ol class="route" aria-label="Clip transfer flow">
+            <li>
+              <span class="route-index">A</span>
+              <div>
+                <h3>Authorize</h3>
+                <p>The account owner signs in on Twitch and Google and explicitly grants access.</p>
+              </div>
+            </li>
+            <li>
+              <span class="route-index">B</span>
+              <div>
+                <h3>Discover</h3>
+                <p>The relay checks the authorized broadcaster for new public clips and skips known clip IDs.</p>
+              </div>
+            </li>
+            <li>
+              <span class="route-index">C</span>
+              <div>
+                <h3>Transfer</h3>
+                <p>A temporary copy is downloaded, uploaded to the authorized YouTube channel, then removed.</p>
+              </div>
+            </li>
+            <li>
+              <span class="route-index">D</span>
+              <div>
+                <h3>Remember</h3>
+                <p>Small operational records prevent intentional duplicate uploads and support safe retries.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="guardrails section-rule" aria-labelledby="guardrails-title">
+          <div class="section-heading">
+            <p class="section-number">02</p>
+            <div>
+              <p class="eyebrow">Guardrails</p>
+              <h2 id="guardrails-title">What this relay will not do</h2>
+            </div>
+          </div>
+
+          <div class="guardrail-grid">
+            <article>
+              <span aria-hidden="true">×</span>
+              <h3>No password collection</h3>
+              <p>Authentication happens only on official Twitch and Google consent pages.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">×</span>
+              <h3>No arbitrary channels</h3>
+              <p>Only an account owner or authorized manager can connect a channel.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">×</span>
+              <h3>No data sales</h3>
+              <p>No advertising profiles, tracking pixels, audience resale, or unrelated data use.</p>
+            </article>
+            <article>
+              <span aria-hidden="true">×</span>
+              <h3>No deletion access</h3>
+              <p>The Google permission is limited to uploading videos; it does not grant video deletion access.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="disclosure section-rule" aria-labelledby="disclosure-title">
+          <div>
+            <p class="eyebrow">Plain-language disclosure</p>
+            <h2 id="disclosure-title">Your authorization remains yours.</h2>
+          </div>
+          <div>
+            <p>
+              Connected accounts can revoke access through their Twitch Connections or Google Account security settings. The relay uses Twitch, YouTube, GitHub Actions, and Upstash only to perform the transfer and retain minimal operational state.
+            </p>
+            <a class="text-link" href="privacy.html">Full privacy details <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Shain Clip Relay</p>
+        <p>Private clip automation · No public signup</p>
+        <a href="privacy.html">Privacy</a>
+      </footer>
+    </div>
+  </body>
+</html>

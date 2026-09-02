@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Privacy policy for Shain Clip Relay, a private Twitch-to-YouTube clip automation."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#11120f" />
+    <title>Privacy Policy · Shain Clip Relay</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-shell legal-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="wordmark" href="index.html" aria-label="Shain Clip Relay home">
+          <span class="wordmark-mark" aria-hidden="true">SCR</span>
+          <span>Shain Clip Relay</span>
+        </a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a aria-current="page" href="privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <header class="legal-hero">
+          <p class="eyebrow">Policy record / 01</p>
+          <h1>Privacy,<br /><em>without fog.</em></h1>
+          <p class="legal-intro">
+            This policy explains how Shain Clip Relay handles data when an account owner authorizes a Twitch-to-YouTube clip transfer.
+          </p>
+          <dl class="policy-meta">
+            <div>
+              <dt>Effective</dt>
+              <dd>1 September 2026</dd>
+            </div>
+            <div>
+              <dt>Service type</dt>
+              <dd>Private personal automation</dd>
+            </div>
+          </dl>
+        </header>
+
+        <div class="legal-layout section-rule">
+          <aside class="legal-index" aria-label="Policy sections">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#scope">Scope</a></li>
+              <li><a href="#data">Data handled</a></li>
+              <li><a href="#use">How data is used</a></li>
+              <li><a href="#services">Service providers</a></li>
+              <li><a href="#retention">Storage and retention</a></li>
+              <li><a href="#control">Your control</a></li>
+              <li><a href="#security">Security</a></li>
+              <li><a href="#changes">Changes and contact</a></li>
+            </ol>
+          </aside>
+
+          <article class="legal-copy">
+            <section id="scope">
+              <p class="legal-number">01</p>
+              <h2>Scope</h2>
+              <p>
+                Shain Clip Relay is an account-owner-operated automation. It checks one explicitly authorized Twitch broadcaster for clips and uploads selected clips to one explicitly authorized YouTube channel. It is not a public social network, advertising service, or data broker.
+              </p>
+            </section>
+
+            <section id="data">
+              <p class="legal-number">02</p>
+              <h2>Data handled</h2>
+              <p>The relay may process the minimum information needed to operate:</p>
+              <ul>
+                <li>Twitch and Google OAuth access and refresh tokens.</li>
+                <li>Twitch account identifiers and public clip information, such as clip ID, title, creator, timestamps, source URL, and media URL.</li>
+                <li>YouTube upload details, including the destination channel authorization, title, description, tags, privacy setting, and returned video ID.</li>
+                <li>Operational records such as previously processed clip IDs, pending work, last successful check time, and short-lived execution locks.</li>
+                <li>A temporary local copy of a clip while an automated job transfers it.</li>
+              </ul>
+              <p>The public website itself uses no analytics, advertising pixels, account forms, or cookies.</p>
+            </section>
+
+            <section id="use">
+              <p class="legal-number">03</p>
+              <h2>How data is used</h2>
+              <p>Data is used only to:</p>
+              <ul>
+                <li>Authenticate the account owner with Twitch and Google.</li>
+                <li>Find new clips for the authorized Twitch broadcaster.</li>
+                <li>Download and upload clips requested by the configured automation.</li>
+                <li>Avoid intentional duplicate uploads and retry failed transfers safely.</li>
+                <li>Maintain and troubleshoot the automation.</li>
+              </ul>
+              <p>
+                The Google OAuth scope is limited to <code>https://www.googleapis.com/auth/youtube.upload</code>. It permits uploads but does not grant permission to delete YouTube videos or broadly manage the channel.
+              </p>
+            </section>
+
+            <section id="services">
+              <p class="legal-number">04</p>
+              <h2>Service providers</h2>
+              <p>The relay depends on these processors to perform its stated function:</p>
+              <ul>
+                <li><strong>Twitch</strong> for account authorization, broadcaster data, clip metadata, and clip media.</li>
+                <li><strong>Google and YouTube</strong> for account authorization and video uploads.</li>
+                <li><strong>GitHub Actions</strong> for scheduled execution and encrypted configuration secrets.</li>
+                <li><strong>Upstash Redis</strong> for OAuth tokens and small operational records.</li>
+              </ul>
+              <p>Data is not sold, rented, used for targeted advertising, or shared for unrelated purposes.</p>
+            </section>
+
+            <section id="retention">
+              <p class="legal-number">05</p>
+              <h2>Storage and retention</h2>
+              <ul>
+                <li>OAuth tokens remain until they are replaced, revoked, or deleted from the private database.</li>
+                <li>Processed clip IDs and upload records remain while needed to prevent duplicate transfers, or until the database owner deletes them.</li>
+                <li>Downloaded clip files are temporary and are removed after processing. If a job is interrupted, its temporary runner storage is discarded when the hosted runner is destroyed.</li>
+                <li>GitHub may retain workflow logs according to the repository's Actions retention settings. Secret values are not intentionally written to logs.</li>
+              </ul>
+              <p>Video files are not stored in Upstash.</p>
+            </section>
+
+            <section id="control">
+              <p class="legal-number">06</p>
+              <h2>Your control</h2>
+              <p>An account owner can stop future access at any time:</p>
+              <ul>
+                <li>For Twitch, disconnect the application from the account's Connections settings.</li>
+                <li>For Google, remove the application's access from the Google Account third-party connections page.</li>
+                <li>Delete stored tokens and operational records from the private Upstash database.</li>
+              </ul>
+              <p>Revocation prevents future transfers but does not automatically delete videos already uploaded to YouTube.</p>
+            </section>
+
+            <section id="security">
+              <p class="legal-number">07</p>
+              <h2>Security</h2>
+              <p>
+                Credentials are excluded from source control, client secrets are stored as encrypted GitHub Actions secrets, and service connections use HTTPS/TLS. Access is limited to the private automation and its account owner. No internet service can guarantee absolute security, but the relay is designed to minimize stored data and avoid exposing credentials in code or logs.
+              </p>
+            </section>
+
+            <section id="changes">
+              <p class="legal-number">08</p>
+              <h2>Changes and contact</h2>
+              <p>
+                This policy may be updated if the relay's behavior or service providers change. The effective date at the top will be revised when material changes are made. Privacy or deletion requests can be sent to the developer support email displayed on the Google OAuth consent screen.
+              </p>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <footer>
+        <p>Shain Clip Relay</p>
+        <p>Policy effective 1 September 2026</p>
+        <a href="index.html">Home</a>
+      </footer>
+    </div>
+  </body>
+</html>
